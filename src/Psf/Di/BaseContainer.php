@@ -91,8 +91,6 @@ abstract class BaseContainer implements ContainerInterface
     {
         if (isset($this->_singletons[$paramClassName])) {
             return $this->_singletons[$paramClassName];
-        } elseif (isset($this->resolvedEntries[$paramClassName])) {
-            return $this->resolvedEntries[$paramClassName];
         } else {
             return $this->build($paramClassName, $definitions);
         }
