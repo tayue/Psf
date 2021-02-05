@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 演示控制器类
+ */
 namespace Psf\Test\App\Controller;
 
 use Psf\Bean\Tool;
@@ -10,8 +12,7 @@ class BlogController
 
     public $tool;
 
-
-    /**依赖注入演示
+     /**依赖注入演示
      * @param Tool $tool
      */
     public function test(Tool $tool){
