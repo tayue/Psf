@@ -28,7 +28,7 @@ class BlogController
 
     public function show($id,Tool $tool)
     {
-        //echo "show_______________";
+        echo "show_______________";
         $this->tool = $tool;
         $di = Container::getInstance();
         //print_r($di->getSingletons());
