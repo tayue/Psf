@@ -44,10 +44,4 @@ class BlogController
         echo "currentSwooleCid:".SwCoroutine::getCid()."\r\n";
         echo 'runtimeMemory:'.round(memory_get_usage()/1024/1024, 2).'MB', '';
     }
-
-    public function article($id, $title)
-    {
-        echo "article_______________";
-        var_dump($id, $title);
-    }
 }
