@@ -1,0 +1,22 @@
+{
+  "name": "tayue/psf",
+  "description": "swoole study framework demo",
+  "type": "library",
+  "authors": [
+    {
+      "name": "tayueliuxiang",
+      "email": "tayueliuxiang1@sina.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "nikic/php-parser": "^4.1",
+    "nikic/fast-route": "^1.3",
+    "swoole/ide-helper": "~4.4.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Psf\\": "src/Psf"
+    }
+  }
+}
