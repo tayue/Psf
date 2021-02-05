@@ -13,10 +13,22 @@ use ReflectionMethod;
 
 abstract class BaseContainer implements ContainerInterface
 {
+    /**解析出的实体对象
+     * @var array
+     */
     protected $resolvedEntries = [];
+
+    /**单例对象集合
+     * @var array
+     */
     protected $_singletons = [];
+
+    /**对象参数
+     * @var array
+     */
     public $_params = [];
-    /**
+
+    /**容器配置数组
      * @var array
      */
     protected $definitions = [];
@@ -28,11 +40,19 @@ abstract class BaseContainer implements ContainerInterface
         }
     }
 
+    /**获取单例对象集合
+     * @return array
+     */
     public function getSingletons()
     {
         return $this->_singletons;
     }
 
+    /**获取容器实例
+     * @param $id
+     * @return mixed|object
+     * @throws \ReflectionException
+     */
     public function get($id)
     {
         if (!$this->has($id)) {
@@ -72,7 +92,7 @@ abstract class BaseContainer implements ContainerInterface
                 $paramClassParams = $this->resolveClassMethodDependencies($paramClassName);
                 $definitions = ['class' => $paramClassName];
                 if ($paramClassParams) {
-                    $definitions = array_merge($definitions, $paramClassParams);
+                    $definitions['constructor'] = $paramClassParams;
                 }
                 $parameters[] = $this->registerObject($paramClassName, $definitions);
             }
@@ -168,6 +188,10 @@ abstract class BaseContainer implements ContainerInterface
         return false;
     }
 
+    /**是否是容器当中的实例
+     * @param $className
+     * @return bool
+     */
     public function isSetSingleton($className)
     {
         $flag = false;
@@ -178,7 +202,7 @@ abstract class BaseContainer implements ContainerInterface
     }
 
 
-    /**设置单例对象
+    /**设置实例对象
      * @param $class
      * @param $object
      * @return mixed
